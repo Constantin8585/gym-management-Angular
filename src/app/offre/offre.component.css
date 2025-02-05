@@ -1,0 +1,87 @@
+.offre-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f3f4f6; /* Couleur de fond plus douce */
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .header h2 {
+    margin: 0;
+    font-size: 2em;
+    color: #2c3e50; /* Couleur du titre */
+  }
+  
+  .header div {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  #useMachines {
+    margin-right: 10px;
+  }
+  
+  .offres-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+  }
+  
+  .offre-card {
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+    background-color: #ffffff; /* Couleur de fond blanche */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .offre-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .offre-card h3 {
+    margin: 10px 0;
+    font-size: 1.5em;
+    color: #34495e; /* Couleur du titre des offres */
+  }
+  
+  .offre-card p {
+    margin: 5px 0;
+    color: #7f8c8d; /* Couleur des descriptions */
+  }
+  
+  .offre-card button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #3498db; /* Couleur du bouton */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .offre-card button:hover {
+    background-color: #2980b9; /* Couleur du bouton au survol */
+  }
+  

@@ -1,0 +1,17 @@
+<div class="offre-page">
+    <div class="header">
+      <h2>Nos Offres</h2>
+      <div>
+        <input type="checkbox" id="useMachines" [(ngModel)]="useMachines" />
+        <label for="useMachines">Utiliser des machines électriques (+10€ par offre)</label>
+      </div>
+    </div>
+    <div class="offres-container">
+      <div *ngFor="let offre of offres" class="offre-card">
+        <h3>{{ offre.name }}</h3>
+        <p>{{ offre.description }}</p>
+        <button (click)="choisirOffre(offre)">Choisir pour {{ getAdjustedPrice(offre.price) }} €</button>
+      </div>
+    </div>
+  </div>
+  
