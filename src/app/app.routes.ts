@@ -6,16 +6,17 @@ import { ClientComponent } from './client/client.component';
 import { OffreComponent } from './offre/offre.component';
 import { CommonModule } from '@angular/common';
 import path from 'path';
+import { AccueilComponent } from './accueil/accueil.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'layout', component: LayoutComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirige vers la page de login par défaut
 
   {
     path: 'app',
   component: LayoutComponent,
   children: [
+    {path: 'accueil', component: AccueilComponent},
     {path: 'client', component: ClientComponent},
     {path: 'offre', component: OffreComponent}
   ]
@@ -23,11 +24,11 @@ export const routes: Routes = [
   
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes)],
+//   exports: [RouterModule]
 
 
-})
-export class AppRoutingModule { }
+// })
+// export class AppRoutingModule { }
 

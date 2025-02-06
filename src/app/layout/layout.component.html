@@ -1,45 +1,52 @@
-<body>
 <div class="navbar">
-    <button class="hamburger" (click)="toggleSidebar()">
-      <i class="fas fa-bars"></i>
-    </button>
-    <h1>GymApp</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#">À propos</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="user-info">
-      <div class="user-frame">
-        <img src="./gym-login.jpg" alt="User Icon" class="user-icon">
-        <span class="user-name">G.Abed-Nego</span>
-      </div>
+  <button class="hamburger" (click)="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+  </button>
+  <h1>GymApp</h1>
+  <nav>
+    <ul>
+      <li><a href="#">Accueil</a></li>
+      <li><a href="#">À propos</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="user-info">
+    <div class="user-frame">
+      <img src="./gym-login.jpg" alt="User Icon" class="user-icon">
+      <span class="user-name">G.Abed-Nego</span>
     </div>
   </div>
-  
-  <div class="layout-container" [class.sidebar-open]="isSidebarOpen">
-    <div class="sidebar" [class.sidebar-open]="isSidebarOpen">
-      <h2>Options</h2>
-      <div class="option-frame">
-        <a (click)="setActivePage('client')" [class.active]="activePage === 'client'">
-          <i class="fas fa-users"></i> Clients
-        </a>
-      </div>
-      <div class="option-frame">
-        <a (click)="setActivePage('offre')" [class.active]="activePage === 'offre'">
-          <i class="fas fa-gift"></i> Offres
-        </a>
-      </div>
-      <div class="logout">
-        <button class="logout-button"><i class="fas fa-sign-out-alt"></i> Se déconnecter</button>
-      </div>
+</div>
+
+<div class="layout-container" [class.sidebar-open]="isSidebarOpen">
+  <div class="sidebar" [class.sidebar-open]="isSidebarOpen">
+    <h2>Options</h2>
+    <div class="option-frame">
+      <a routerLink="/app/accueil" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-item">
+        <i class="fas fa-home"></i> Accueil
+      </a>
+
     </div>
-    <div class="content" [class.content-full]="!isSidebarOpen">
-      <app-client *ngIf="activePage === 'client'"></app-client>
-      <app-offre *ngIf="activePage === 'offre'"></app-offre>
+    <div class="option-frame">
+
+      <a routerLink="/app/client" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-item">
+        <i class="fas fa-users"></i> Clients
+      </a>
+    </div>
+    <div class="option-frame">
+      <a routerLink="/app/offre" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-item">
+        <i class="fas fa-gift"></i> Offres
+      </a>
+    </div>
+    <div class="logout">
+      <button class="logout-button"><i class="fas fa-sign-out-alt"></i> Se déconnecter</button>
     </div>
   </div>
-</body>
-  
+  <div class="content" [class.content-full]="!isSidebarOpen">
+    <app-accueil *ngIf="activePage === '/app/accueil'"></app-accueil>
+    <app-client *ngIf="activePage === '/app/client'"></app-client>
+    <app-offre *ngIf="activePage === '/app/offre'"></app-offre>
+  </div>
+</div>
