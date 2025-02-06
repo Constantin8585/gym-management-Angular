@@ -1,1 +1,38 @@
-<p>accueil works!</p>
+<div>
+    <h2>Calendrier</h2>
+    <full-calendar [options]="calendarOptions"></full-calendar>
+    <h2>Derniers abonnements actifs</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let abonnement of abonnementsActifs">
+          <td>{{ abonnement.nom }}</td>
+          <td>{{ abonnement.date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h2>Derniers abonnements inactifs</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let abonnement of abonnementsInactifs">
+          <td>{{ abonnement.nom }}</td>
+          <td>{{ abonnement.date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    
+  </div>
+  

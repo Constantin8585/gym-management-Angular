@@ -1,0 +1,41 @@
+/* Style pour le tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  thead th {
+    background-color: #4CAF50;
+    color: white;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  tbody td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tbody tr:hover {
+    background-color: #ddd;
+  }
+  
+  tbody tr td {
+    text-align: left;
+  }
+  
+  /* Style pour le calendrier */
+  #calendar {
+    margin-top: 20px;
+  }
+  
+  h2 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
