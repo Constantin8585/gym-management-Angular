@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarOptions } from '@fullcalendar/core';
+
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { CommonModule } from '@angular/common';
 import { FullCalendarModule } from '@fullcalendar/angular';
@@ -28,10 +28,7 @@ export class AccueilComponent implements OnInit {
     { nom: 'Abonnement 10', date: '2024-12-15' }
   ];
 
-  calendarOptions: CalendarOptions = {
-    initialView: 'dayGridMonth'
-  };
-
+ 
   constructor() {}
 
   ngOnInit() {}
