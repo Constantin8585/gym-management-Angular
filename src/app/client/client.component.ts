@@ -1,14 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { NgModule } from '@angular/core';
-
-
-
-
 import { FormsModule } from '@angular/forms';
-
 import { CommonModule } from '@angular/common';
-
 
 interface Customer {
   id: number;
@@ -20,17 +13,10 @@ interface Customer {
 }
 
 @Component({
-  
   imports: [
-
-
-
     FormsModule,
-
     CommonModule
-
   ],
-
   selector: 'app-client',
   templateUrl: './client.component.html',
   styleUrls: ['./client.component.css']
@@ -42,6 +28,14 @@ export class ClientComponent implements OnInit {
   ];
   filteredCustomers: Customer[] = [];
   searchTerm: string = '';
+  newCustomer: Customer = {
+    id: 0,
+    lastName: '',
+    firstName: '',
+    registrationDate: '',
+    phoneNumber: '',
+    activeSubscription: false
+  };
 
   ngOnInit() {
     this.filteredCustomers = [...this.customers];
@@ -56,6 +50,36 @@ export class ClientComponent implements OnInit {
 
   openFilterDialog() {
     alert('Ouverture de la boîte de dialogue de filtrage');
+  }
+
+  openModal() {
+    const modal = document.getElementById('addCustomerModal');
+    if (modal) {
+      modal.style.display = 'block';
+    }
+  }
+
+  closeModal() {
+    const modal = document.getElementById('addCustomerModal');
+    if (modal) {
+      modal.style.display = 'none';
+    }
+  }
+
+  saveCustomer() {
+    this.newCustomer.id = this.customers.length + 1;
+    this.customers.push({ ...this.newCustomer });
+    this.filterCustomers();
+    this.closeModal();
+    // Réinitialiser le formulaire
+    this.newCustomer = {
+      id: 0,
+      lastName: '',
+      firstName: '',
+      registrationDate: '',
+      phoneNumber: '',
+      activeSubscription: false
+    };
   }
 
   addCustomer() {

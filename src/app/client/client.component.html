@@ -1,44 +1,69 @@
 <div class="customer-list-container">
-    <div class="toolbar">
-      <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher un client..." (input)="filterCustomers()">
-      <button (click)="openFilterDialog()">
-        <i class="fas fa-filter"></i> Filtrer
-      </button>
-      <button (click)="addCustomer()">
-        <i class="fas fa-plus"></i> Ajouter un client
-      </button>
-    </div>
-    
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nom</th>
-          <th>Prénom</th>
-          <th>Date d'inscription</th>
-          <th>Téléphone</th>
-          <th>Abonnement actif</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let customer of filteredCustomers">
-          <td>{{ customer.id }}</td>
-          <td>{{ customer.lastName }}</td>
-          <td>{{ customer.firstName }}</td>
-          <td>{{ customer.registrationDate }}</td>
-          <td>{{ customer.phoneNumber }}</td>
-          <td>{{ customer.activeSubscription ? 'Oui' : 'Non' }}</td>
-          <td>
-            <button (click)="editCustomer(customer)">
-              <i class="fas fa-edit"></i>
-            </button>
-            <button (click)="deleteCustomer(customer.id)">
-              <i class="fas fa-trash"></i>
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="toolbar">
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher un client..." (input)="filterCustomers()">
+    <button (click)="openFilterDialog()">
+      <i class="fas fa-filter"></i> Filtrer
+    </button>
+    <button (click)="openModal()">
+      <i class="fas fa-plus"></i> Ajouter un client
+    </button>
   </div>
   
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Date d'inscription</th>
+        <th>Téléphone</th>
+        <th>Abonnement actif</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of filteredCustomers">
+        <td>{{ customer.id }}</td>
+        <td>{{ customer.lastName }}</td>
+        <td>{{ customer.firstName }}</td>
+        <td>{{ customer.registrationDate }}</td>
+        <td>{{ customer.phoneNumber }}</td>
+        <td>{{ customer.activeSubscription ? 'Oui' : 'Non' }}</td>
+        <td>
+          <button (click)="editCustomer(customer)">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button (click)="deleteCustomer(customer.id)">
+            <i class="fas fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal -->
+  <div id="addCustomerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h2>Ajouter un client</h2>
+      <form (ngSubmit)="saveCustomer()">
+        <label for="lastName">Nom:</label>
+        <input type="text" id="lastName" [(ngModel)]="newCustomer.lastName" name="lastName" required>
+
+        <label for="firstName">Prénom:</label>
+        <input type="text" id="firstName" [(ngModel)]="newCustomer.firstName" name="firstName" required>
+
+        <label for="registrationDate">Date d'inscription:</label>
+        <input type="date" id="registrationDate" [(ngModel)]="newCustomer.registrationDate" name="registrationDate" required>
+
+        <label for="phoneNumber">Téléphone:</label>
+        <input type="text" id="phoneNumber" [(ngModel)]="newCustomer.phoneNumber" name="phoneNumber" required>
+
+        <label for="activeSubscription">Abonnement actif:</label>
+        <input type="checkbox" id="activeSubscription" [(ngModel)]="newCustomer.activeSubscription" name="activeSubscription">
+
+        <button type="submit">Ajouter</button>
+      </form>
+    </div>
+  </div>
+</div>
