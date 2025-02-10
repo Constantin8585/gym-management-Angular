@@ -41,8 +41,8 @@
     </tbody>
   </table>
 
-  <!-- Modal -->
-  <div id="addCustomerModal" class="modal">
+  <!-- Modal (s'affiche uniquement si isModalOpen est true) -->
+  <div *ngIf="isModalOpen" class="modal">
     <div class="modal-content">
       <span class="close" (click)="closeModal()">&times;</span>
       <h2>Ajouter un client</h2>
